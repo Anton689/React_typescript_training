@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 type AccordionPropsType = {
     title: number
@@ -6,17 +6,24 @@ type AccordionPropsType = {
 }
 
 function Accordion(props: AccordionPropsType) {
-    if (props.collapsed){
+    return <div>
+        <AccordionTitle title={props.title}/>
+        {!props.collapsed && <AccordionBody/>}
+    </div>
+}
+
+function Accordion2(props: AccordionPropsType) {
+    if (props.collapsed) {
         return (<div>
+
+            <AccordionTitle title={props.title}/>
+        </div>);
+    } else {
+        return <div>
             <AccordionTitle title={props.title}/>
             <AccordionBody/>
-        </div>);
+        </div>
     }
-    if (!props.collapsed){
-        return <div><AccordionTitle title={props.title}/></div>
-    }
-    return <div><AccordionTitle title={props.title}/></div>
-
 }
 
 type AccordionTitlePropsType = {
@@ -35,8 +42,7 @@ function AccordionTitle(props: AccordionTitlePropsType) {
 }
 
 function AccordionBody() {
-    console.log("AccordionBody rendering")
-    return <ul>
+        return <ul>
         <li>1</li>
         <li>2</li>
         <li>3</li>
